@@ -1,0 +1,12 @@
+# Webvelop local data (settings, autosaves, logs, previews, exports, default projects folder)
+.webvelop-data/
+# Local caches (npm, Electron downloads, logs of tools)
+.cache/
+node_modules/
+.DS_Store
+# Build output
+dist/
+newIDE/app/build/
+newIDE/electron-app/dist/
+newIDE/electron-app/app/www/
+*.log

@@ -1,0 +1,21 @@
+{
+  "name": "webvelop-desktop",
+  "productName": "Webvelop",
+  "description": "Webvelop desktop application (Electron)",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "postinstall": "cd app && npm install --no-audit --no-fund",
+    "start": "electron app",
+    "app-build": "node scripts/app-build.js",
+    "build": "node scripts/build.js",
+    "make-icons": "node scripts/make-icons.js"
+  },
+  "devDependencies": {
+    "electron": "32.3.3",
+    "electron-builder": "26.4.0",
+    "minimist": "^1.2.3",
+    "shelljs": "0.8.4"
+  }
+}

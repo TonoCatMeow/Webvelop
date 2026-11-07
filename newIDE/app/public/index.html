@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png">
+    <title>Webvelop</title>
+    <meta name="title" content="Webvelop - visual website builder" />
+    <meta name="description" content="Build websites visually: responsive pages, interactions, React components and JavaScript. Preview and export real websites." />
+
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #25252e;
+        transition: background-color 0.5s linear;
+      }
+
+      /* Loading screen: the Webvelop logo, until the editor is displayed. */
+      body {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='60' height='60' rx='14' fill='url(%23g)'/%3E%3Cpath d='M14 20 L22 46 L32 26 L42 46 L50 20' fill='none' stroke='%23fff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center center;
+        overscroll-behavior: none;
+      }
+    </style>
+
+    <meta name="theme-color" content="#25252e">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  </head>
+  <body translate="no">
+    <div id="root"></div>
+    <script>
+      // Silence the benign "ResizeObserver loop" error of browsers.
+      window.addEventListener('error', function(event) {
+        if (event.message === 'ResizeObserver loop completed with undelivered notifications.') {
+          event.stopImmediatePropagation();
+        }
+      });
+    </script>
+    <noscript>
+      <div style="font-family: sans-serif; padding: 15px; color: #ddd;">
+        Webvelop needs JavaScript to run. Please enable JavaScript in your browser, or use the desktop application.
+      </div>
+    </noscript>
+  </body>
+</html>

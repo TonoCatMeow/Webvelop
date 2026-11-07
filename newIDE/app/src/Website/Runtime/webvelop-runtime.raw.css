@@ -1,0 +1,326 @@
+/* Webvelop runtime styles - base styles of websites made with Webvelop. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: var(--font-size-base, 16px);
+  line-height: 1.6;
+  color: var(--color-text, #0f172a);
+  background-color: var(--color-background, #ffffff);
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading, inherit);
+  line-height: 1.2;
+  margin: 0;
+}
+img,
+video,
+svg {
+  max-width: 100%;
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+a {
+  color: inherit;
+}
+.wv-page {
+  min-height: 100vh;
+}
+.wv-icon svg,
+svg.wv-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.wv-button-icon {
+  display: inline-flex;
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+}
+.wv-button-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.wv-embed > iframe {
+  max-width: 100%;
+}
+
+/* Visibility, controlled by interactions */
+.wv-hidden {
+  display: none !important;
+}
+.wv-shown {
+  display: var(--wv-show-display, block) !important;
+}
+.wv-scroll-locked,
+.wv-scroll-locked body {
+  overflow: hidden;
+}
+
+/* Forms */
+.wv-validated :invalid {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+/* Carousel */
+.wv-carousel {
+  position: relative;
+}
+.wv-carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-y;
+}
+.wv-carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.wv-carousel-slide {
+  flex: 0 0 100% !important;
+  max-width: 100%;
+}
+.wv-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  color: #0f172a;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+.wv-carousel-arrow:hover {
+  background: #ffffff;
+}
+.wv-carousel-previous {
+  left: 12px;
+}
+.wv-carousel-next {
+  right: 12px;
+}
+.wv-carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 2;
+}
+.wv-carousel-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+}
+.wv-carousel-dot.is-active {
+  background: #ffffff;
+  transform: scale(1.25);
+}
+
+/* Lightbox */
+.wv-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(2, 6, 23, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 72px;
+}
+.wv-lightbox-image {
+  max-width: 100%;
+  max-height: calc(100% - 40px);
+  border-radius: 8px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+.wv-lightbox-caption {
+  color: #e2e8f0;
+  margin-top: 12px;
+  min-height: 1.5em;
+}
+.wv-lightbox button {
+  position: absolute;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+.wv-lightbox button:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+.wv-lightbox-close {
+  top: 16px;
+  right: 16px;
+}
+.wv-lightbox-prev {
+  left: 16px;
+  top: 50%;
+}
+.wv-lightbox-next {
+  right: 16px;
+  top: 50%;
+}
+@media (max-width: 767px) {
+  .wv-lightbox {
+    padding: 64px 12px;
+  }
+  .wv-lightbox-prev,
+  .wv-lightbox-next {
+    top: auto;
+    bottom: 16px;
+  }
+}
+
+.wv-react-error {
+  padding: 12px;
+  border-radius: 6px;
+  background: #fee2e2;
+  color: #991b1b;
+  font: 14px/1.4 monospace;
+}
+
+/* Animations */
+.wv-js .wv-anim-pending {
+  opacity: 0;
+}
+.wv-anim-run {
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.wv-anim-fade-in {
+  animation-name: wv-fade-in;
+}
+.wv-anim-fade-out {
+  animation-name: wv-fade-out;
+}
+.wv-anim-fade-up {
+  animation-name: wv-fade-up;
+}
+.wv-anim-fade-down {
+  animation-name: wv-fade-down;
+}
+.wv-anim-slide-left {
+  animation-name: wv-slide-left;
+}
+.wv-anim-slide-right {
+  animation-name: wv-slide-right;
+}
+.wv-anim-zoom-in {
+  animation-name: wv-zoom-in;
+}
+.wv-anim-bounce {
+  animation-name: wv-bounce;
+}
+.wv-anim-shake {
+  animation-name: wv-shake;
+}
+.wv-anim-pulse {
+  animation-name: wv-pulse;
+}
+.wv-anim-spin {
+  animation-name: wv-spin;
+  animation-timing-function: linear;
+}
+.wv-anim-wobble {
+  animation-name: wv-wobble;
+}
+@keyframes wv-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes wv-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes wv-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes wv-fade-down {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes wv-slide-left {
+  from { opacity: 0; transform: translateX(48px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes wv-slide-right {
+  from { opacity: 0; transform: translateX(-48px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes wv-zoom-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes wv-bounce {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-16px); }
+  50% { transform: translateY(0); }
+  70% { transform: translateY(-6px); }
+}
+@keyframes wv-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+@keyframes wv-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+@keyframes wv-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes wv-wobble {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-6deg); }
+  75% { transform: rotate(6deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wv-anim-run {
+    animation-duration: 0.01ms !important;
+  }
+  .wv-js .wv-anim-pending {
+    opacity: 1;
+  }
+}
